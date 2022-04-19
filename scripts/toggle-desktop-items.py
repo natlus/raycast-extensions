@@ -20,10 +20,12 @@ current = subprocess.run(["defaults", "read", "com.apple.finder", "CreateDesktop
 
 if current == 'true':
   # Hide icons
+  print('Hidden')
   subprocess.run(["defaults", "write", "com.apple.finder", "CreateDesktop", "false"])
   subprocess.run(['Killall', 'Finder'])
 else:
   # Show icons
+  print('Shown')
   subprocess.run(["defaults", "write", "com.apple.finder", "CreateDesktop", "true"])
 
 # Restart Finder.app
